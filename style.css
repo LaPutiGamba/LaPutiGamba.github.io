@@ -1,0 +1,77 @@
+body {
+    background-color: #08001a;
+    color: white;
+}
+
+#canvas {
+    text-align: center;
+}
+
+#button, #buttonAgain {
+    text-align: center;
+}
+
+#buttonAgain {
+    margin-top: 1vw;
+}
+
+.buttonPlay {
+    font: 3vw 'Rubik Iso', cursive;
+    color: #ad03fc;
+    border: 0.3vw solid #2e0191;
+    border-radius: 1vw;
+    background-color: #031787;
+    padding: 0.2vw 0.5vw 0.2vw 0.5vw;
+}
+
+.buttonPlay:hover {
+    color: #ad03fc;
+    border: 0.3vw solid #ad03fc;
+    background-color: #2e0191;
+}
+
+.buttonPlay:active {
+    background-color: #3d02bf;
+    transform: translateY(4px);
+}
+
+#title {
+    font: 5vw 'Silkscreen', cursive; 
+    color: #ad03fc;
+    text-align: center;
+    margin: 0.1vw 0vw 0.1vw 0vw;
+}
+
+#subtitle {
+    font: 1.3vw 'Rubik Iso', cursive;
+    color: #0077cc;
+    margin: 0.1vw 0vw 0.1vw 0vw;
+    text-align: center;
+}
+
+.text {
+    font: 0.9vw 'Poppins', sans-serif;
+    color: #0597ff;
+    padding-left: 0.5vw;
+    margin: 0.1vw 0vw 0.1vw 0vw;
+}
+
+.textTitle {
+    font: bold 1.4vw 'Poppins', sans-serif;
+    text-decoration: underline;
+    margin: 0.75vw 0vw 0.2vw 0vw;
+}
+
+#colorShip {
+    margin-top: 1vw;
+}
+
+#colorShip input[type="radio"],
+#colorShip label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#blue, #green, #purple, #red {
+        display: inline;
+}

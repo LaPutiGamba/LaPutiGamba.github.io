@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>SHOOTING ARIA</title>
+		<meta charset="UTF-8">
+
+		<link href="style.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DotGothic16&family=Righteous&family=Rubik+Iso&family=Silkscreen:wght@700&display=swap&family=Poppins:wght@300&display=swap" rel="stylesheet">     </head>
+
+    <body onload="game()">
+        <h1 id="title">SHOOTING ARIA</h1>
+
+        <p id="subtitle">Click on the button to start the game!</p>
+        
+        <div id="canvas" style="display: none">
+            <canvas id="myCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <p class="text">This game is a <b>Space Shooter</b> with diferents enemies, bosses and enhancers.</p>
+
+        <p class="text textTitle">KEYS</p>
+        <ul class="text" style="padding-left: 3.5vw">
+            <li><b>Move Left:</b> Left Arrow (&lt;-) or A</li>
+            <li><b>Move Right:</b> Right Arrow (->) or D</li>
+            <li><b>Shoot:</b> Space</li>
+            <li><b>Bomb Enhancer:</b> M</li>
+        </ul>
+
+        <p class="text textTitle">TECHNICAL SPECIFICATIONS</p>
+        <ul class="text" style="padding-left: 3.5vw">
+            <li><b>Bullet Enhancer:</b> If you pick up this enhancer you will shot one more bullet every time you shoot. There are a maxium of 5 bullets if the points are less than 10.000, 7 if are less than 20.000 and 10 if are more than 20.000. If you achieve the maximum and you pick another enhancer you will receive points.</li>
+            <li><b>Heart Enhancer:</b> If you have two lifes left you will have the chance to get this enhancer. If you pick it up you will totaly heal.</li>
+            <li><b>No Bullets Enhancer:</b> If you pick up this enhancer you won't be able to shoot for 5 seconds.</li>
+            <li><b>Bomb Enhancer:</b> If you pick up this enhancer you will have a bomb that you will be able to explode with the M key. If you explode it all the enemies (bosses no) will die.</li>
+            <li><b>10.000 points:</b> If you reach 10.000 points a boss will spawn. When you kill it the ships will change.</li>
+            <li><b>20.000 points:</b> If you reach 20.000 points another boss will spawn. When you kill it the ships will change.</li>
+            <li><b>Change player ship color:</b> If you select one of the colors the ship will change. You can change it in the middle of the game.</li>
+        </ul>
+
+        <p class="text textTitle">TECHNICAL FEATURE EXPLANATION</p>
+        <ul class="text" style="padding-left: 3.5vw">
+            <li><b>Enhancers:</b> I put a lot on effort in doing the enhancers and I did it by changhing the image of the enemy. I could have did it in another way but for me it seemed the easiest. I changed the image, the width and the height and I also turn on a boolean. Then I started doing like with everything: conditions. If the boolean was true then the bullet when collisions with the player he doesn't get hurt, if the bullets hit the enhancer they didn't kill it, etc.</li>
+        </ul>
+
+        <div id="colorShip">
+            <p class="text">Select the color of your ship!</p>
+            <input type="radio" id="blue" name="colorShip">
+            <label for="blue">BLUE</label><br>
+            <input type="radio" id="green" name="colorShip">
+            <label for="green">GREEN</label><br>
+            <input type="radio" id="purple" name="colorShip" checked>
+            <label for="purple">PURPLE</label><br>
+            <input type="radio" id="red" name="colorShip">
+            <label for="red">RED</label>
+        </div>
+
+                  
+        <div id="button">
+            <button type="button" class="buttonPlay" onclick="buttonPlay()">PLAY</button>
+        </div>
+
+        
+        <div id="buttonAgain" style="display: none">
+            <button type="button" class="buttonPlay" onclick="buttonPlayAgain()">PLAY AGAIN</button>
+        </div>
+
+        <p id="points" style="display: none">Points: </p>
+    </body>
+</html> 
