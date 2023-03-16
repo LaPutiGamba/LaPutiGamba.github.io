@@ -398,7 +398,7 @@ function loopGame(){
 		if (keyRight && !keyLeft && Player.PosX < 710 && enemyBoss) Player.PosX += 6;
 		
 		// Spawn of bullets if key space is pressed.
-		if (keySpace && (Date.now() - cooldownBullets) >= 350 && (Date.now() - cooldownBulletsEnhancer) >= 500) {
+		if (keySpace && (Date.now() - cooldownBullets) >= 350 && (Date.now() - cooldownBulletsEnhancer) >= 5000) {
 			Bullet.push(new Ship ((Player.PosX + 27), (Player.PosY - 30), 16, 35));
 			Bullet[Bullet.length-1].activatedBullet = true;
 
@@ -531,16 +531,6 @@ function loopGame(){
 		if ((Date.now() - cooldownEnemyMovement) >= 2000) cooldownEnemyMovement = Date.now();
 
 		Enemy.forEach((enemy, index) => {
-			// Changes the PosX.
-			if ((Date.now() - cooldownEnemyMovement) < 1000 && !Enemy[index].bulletEnhancer && !Enemy[index].heartEnhancer && !Enemy[index].noBulletsEnhancer && !Enemy[index].bombEnhancer && !enemyBoss) {
-				Enemy[index].PosX += Enemy[index].EnemyPosXD;
-			} else if ((Date.now() - cooldownEnemyMovement) > 1000 && !Enemy[index].bulletEnhancer && !Enemy[index].heartEnhancer && !Enemy[index].noBulletsEnhancer && !Enemy[index].bombEnhancer && !enemyBoss) {
-				Enemy[index].PosX += Enemy[index].EnemyPosXI;
-			}
-
-			// Add 2 to PosY of the enemy.
-			Enemy[index].PosY += 2;
-
 			if (!enemyBoss) {
 				// Draw the enemies.
 				if (Enemy[index].bulletEnhancer) {
@@ -556,10 +546,6 @@ function loopGame(){
 							}
 							
 			}
-
-			// If any enemy pass the limit it destroy it.
-			if (Enemy[index].PosY > 600) Enemy.shift();
-
 			// If the enemies life's reaches 0 it can transform to an enhancer or delete it self.
 			if (Enemy[index].Life <= 0 && !enemyBoss) {
 				if (Math.floor(Math.random() * 15) == 0) {
@@ -579,6 +565,8 @@ function loopGame(){
 							Enemy[index].Life = 1000;
 							} else if (Math.floor(Math.random() * 50) == 15) {
 								Enemy[index].noBulletsEnhancer = true;
+								Enemy[index].Width = 27;
+								Enemy[index].Height = 27;
 								Enemy[index].Life = 1000;
 								} else if (!Enemy[index].bulletEnhancer && !Enemy[index].heartEnhancer && !Enemy[index].noBulletsEnhancer && !Enemy[index].bombEnhancer) {
 									Enemy.splice(index, 1);
@@ -586,6 +574,23 @@ function loopGame(){
 								}
 
 				audioEnemyDeath.play();
+			}
+		});
+
+		Enemy.forEach((enemy, index) => {
+			// Changes the PosX.
+			if ((Date.now() - cooldownEnemyMovement) < 1000 && !Enemy[index].bulletEnhancer && !Enemy[index].heartEnhancer && !Enemy[index].noBulletsEnhancer && !Enemy[index].bombEnhancer && !enemyBoss) {
+				Enemy[index].PosX += Enemy[index].EnemyPosXD;
+			} else if ((Date.now() - cooldownEnemyMovement) > 1000 && !Enemy[index].bulletEnhancer && !Enemy[index].heartEnhancer && !Enemy[index].noBulletsEnhancer && !Enemy[index].bombEnhancer && !enemyBoss) {
+				Enemy[index].PosX += Enemy[index].EnemyPosXI;
+			}
+
+			// Add 2 to PosY of the enemy.
+			Enemy[index].PosY += 2;
+
+			// If any enemy pass the limit it destroy it.
+			if (Enemy[index].PosY > 600) {
+				Enemy.shift();
 			}
 		});
 

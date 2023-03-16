@@ -9,6 +9,7 @@ body {
 
 #button, #buttonAgain {
     text-align: center;
+    margin-top: 1vw;
 }
 
 #buttonAgain {
@@ -63,15 +64,79 @@ body {
 }
 
 #colorShip {
+    font: bold 1.4vw 'Poppins', sans-serif;
     margin-top: 1vw;
+    text-align: center;
 }
 
-#colorShip input[type="radio"],
-#colorShip label {
-  display: inline-block;
-  margin-right: 10px;
+input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 100%;
+    background: #FF572233;
+    border: 0.15vw solid rgb(190, 189, 189);
+    transform: translate(0vw, 0.2604166666666667vw);
 }
 
-#blue, #green, #purple, #red {
-        display: inline;
+.blue {
+    color: rgb(125, 125, 245);
+}
+
+#blue {
+    background: rgb(125, 125, 245);
+}
+
+#blue:checked {
+    background-color: blue;
+}
+
+.green {
+    color: lightgreen;
+}
+
+#green {
+    background: lightgreen;
+}
+
+#green:checked {
+    background: green;
+}
+
+.purple {
+    color: rgb(247, 127, 247);
+}
+
+#purple {
+    background: rgb(247, 127, 247);
+}
+
+#purple:checked {
+    background: purple;
+}
+
+.red {
+    color: rgb(233, 107, 107);
+}
+
+#red {
+    background: rgb(233, 107, 107);
+}
+
+#red:checked {
+    background: red;
+}
+
+label {
+    margin-right: 1vw;
+}
+
+input, label {
+    cursor: pointer;
+}
+
+#selectShip {
+    font: 1.2vw 'Poppins', sans-serif;
+    color: pink;
 }
